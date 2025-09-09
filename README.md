@@ -1,98 +1,219 @@
-📌 Task Management App – Flutter
+Task Management App
+A modern, feature-rich task management application built with Flutter that helps you organize your tasks efficiently with a clean and intuitive user interface.
 
-A simple Task Management App built with Flutter, as part of the Pepper Cloud Flutter Developer assignment. The app allows users to create, edit, delete, and manage tasks with a clean Material Design UI.
+Features
+✅ Task Management: Create, edit, and delete tasks
 
-🚀 Features
+🔍 Search Functionality: Real-time search through task titles and descriptions
 
-Task List: View all tasks with title, description, due date, and status
+🎯 Smart Filtering: Filter tasks by completion status
 
-Add Task: Create new tasks with input validation
+📅 Smart Sorting: Sort tasks by due date (ascending/descending)
 
-Edit Task: Update existing tasks with pre-filled details
+🎨 Modern UI: Clean Material Design interface with light and dark theme support
 
-Delete Task: Remove tasks from the list
+💾 Local Storage: Data persistence using SharedPreferences
 
-Mark as Completed: Toggle task status (pending/completed)
+📱 Responsive Design: Works seamlessly on different screen sizes
 
-Search by Title: Quickly find tasks by typing in the search bar
+🌓 Theme Support: Automatic light/dark theme based on system settings
 
-Filter by Status: Show only completed or pending tasks
+Screenshots
+(Note: Add actual screenshots of your app here)
 
-Sort by Due Date: Sort tasks in ascending/descending order
+Task List Screen with search and bottom controls
 
-Local Persistence: Tasks are stored locally using SharedPreferences / SQLite
+Add/Edit Task Screen with form validation
 
-Material Design UI: Clean, responsive design following Flutter best practices
+Dark theme variant
 
-🛠️ Tech Stack
+Filter and sort interface
 
-Flutter (Dart)
-
-Local Data Persistence: SharedPreferences / SQLite
-
-State Management: [Provider / Bloc / setState] (update based on what you used)
-
-▶️ Getting Started
+Installation & Setup
 Prerequisites
+Flutter SDK (version 3.0.0 or higher)
 
-Install Flutter
- SDK
+Dart (version 2.17.0 or higher)
 
-Set up an Android/iOS emulator or connect a physical device
+Android Studio or VS Code with Flutter extension
 
-Installation
+An Android or iOS emulator, or a physical device
 
-Clone the Repository
+Steps to Run the App
+Clone the repository
 
-git clone <repo-link>
-cd <project-folder>
+bash
+git clone <your-repository-url>
+cd task_manager
+Install dependencies
 
-
-Install Dependencies
-
+bash
 flutter pub get
+Run the app
 
-
-Run the App
-
+bash
 flutter run
+Build for production (optional)
 
-📽 Demo
+bash
+flutter build apk --release  # For Android
+flutter build ios --release  # For iOS (requires macOS)
+Project Structure
+The app follows Clean Architecture principles with the following structure:
 
-[Demo Video Link]
-
-Screenshots (optional – add if you want to show UI previews)
-
-📂 Project Structure
+text
 lib/
-│-- main.dart
-│-- models/       # Task model
-│-- screens/      # UI screens (Task List, Add Task, Edit Task)
-│-- widgets/      # Reusable widgets
-│-- services/     # Local storage / API simulation
+├── core/
+│   ├── constants/          # App constants and theme
+│   ├── providers/          # Global providers
+│   └── utils/              # Utility functions
+├── data/
+│   ├── datasources/        # Data sources (local, remote)
+│   ├── models/             # Data models
+│   └── repositories/       # Repository implementations
+├── domain/
+│   ├── entities/           # Business entities
+│   ├── repositories/       # Repository interfaces
+│   └── usecases/           # Business logic
+└── presentation/
+    ├── pages/              # Screen widgets
+    ├── providers/          # UI state providers
+    └── widgets/            # Reusable UI components
+Key Components
+State Management
+The app uses the Provider package for state management, ensuring a clean separation between UI and business logic.
 
-✅ Assignment Notes
+Data Persistence
+Tasks are stored locally using SharedPreferences, ensuring your data persists between app sessions.
 
-This app fulfills all the assignment requirements:
+Theme System
+The app includes a comprehensive theme system with:
 
-Task CRUD operations
+Light and dark theme variants
 
-Navigation between screens
+Consistent color scheme and typography
 
-Local data persistence
+System theme detection
 
-Search, filter, and sort functionality
+Usage Guide
+Adding a Task
+Tap the + (plus) button in the bottom right corner
 
-Material Design principles applied
+Fill in the task title (required)
 
-Optional enhancements added:
+Add a description (optional)
 
- Search by title
+Select a due date
 
- Filter completed tasks
+Tap "Add Task" to save
 
- Sort by due date
+Editing a Task
+Tap the edit (pencil) icon on any task
 
-📄 License
+Modify the task details
 
-This project is for assignment/demo purposes only.
+Tap "Save Changes" to update
+
+Completing a Task
+Tap the checkbox next to any task to mark it as completed
+
+Tap again to mark it as incomplete
+
+Searching Tasks
+Use the search bar at the top to filter tasks by title or description
+
+The list updates in real-time as you type
+
+Filtering and Sorting
+Use the "Hide Completed" button at the bottom left to show/hide completed tasks
+
+Use the sort button at the bottom right to toggle between ascending/descending due date order
+
+Deleting a Task
+Tap the delete (trash) icon on any task
+
+Confirm deletion in the dialog that appears
+
+Dependencies
+The app uses the following packages:
+
+provider: State management
+
+shared_preferences: Local data storage
+
+intl: Date formatting and localization
+
+equatable: Value comparison utilities
+
+uuid: Unique ID generation
+
+Customization
+Modifying the Theme
+Edit the AppTheme class in lib/core/constants/app_theme.dart to customize colors, typography, and other visual properties.
+
+Adding New Task Properties
+Update the Task entity in lib/domain/entities/task.dart
+
+Update the TaskModel in lib/data/models/task_model.dart
+
+Update the UI components to handle the new property
+
+Changing Storage Method
+Replace the LocalDataSource in lib/data/datasources/local_data_source.dart with your preferred storage solution (SQLite, Firebase, etc.).
+
+Troubleshooting
+Common Issues
+App won't build
+
+Run flutter clean and then flutter pub get
+
+Ensure you're using the correct Flutter version
+
+Tasks not saving
+
+Check storage permissions on the device
+
+Verify SharedPreferences is properly configured
+
+UI looks different on various devices
+
+The app uses responsive design principles, but test on different screen sizes
+
+Getting Help
+If you encounter issues:
+
+Check the Flutter documentation
+
+Search for similar issues in the package repositories
+
+Create an issue in the project repository with details about the problem
+
+Future Enhancements
+Potential improvements for future versions:
+
+Task categories and tags
+
+Notifications for due tasks
+
+Task sharing and collaboration
+
+Cloud synchronization
+
+Advanced filtering options
+
+Task templates
+
+Productivity analytics
+
+Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Acknowledgments
+Flutter team for the excellent framework
+
+Material Design for the design guidelines
+
+The package authors for the dependencies used
